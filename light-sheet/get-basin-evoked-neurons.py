@@ -21,6 +21,8 @@ em_based_lsm_labels_idx = np.array([r.label for r in regions]) - 1 # get neuron 
 em_based_lsm_labels_centroids = np.array([r.centroid for r in regions]) # get neuron centroids
 em_based_lsm_labels_areas = np.array([r.area for r in regions]) # get neuron areas
 
+# Define parameters
+lsm_imaging_frequency = 2.87 # Hz
 
 # ------------------------------------------------------
 # Get times of behaviour and stimulation events
