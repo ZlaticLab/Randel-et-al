@@ -9,11 +9,11 @@ from statsmodels.stats.multitest import multipletests
 from scipy.stats import ttest_1samp
 
 # Load data
-all_neuron_traces = np.load("./data/neuron_traces_cleaned_3um.npz")["neuron_traces"]
-brain_neuron_indices = np.load("./data/indices_of_brain_neurons.npy")
-behaviour_annotations = pd.read_csv(f"./data/eventAnnotations.csv")
-segmentation = skimage.io.imread(f"./data/em_based_lsm_segmentation_3um.tif")
-neuron_traces_em_locations = pd.read_csv("./data/neuron_traces_em_locations.csv", header=None).values
+all_neuron_traces = np.load("../data/em-lsm-data/neuron_traces_cleaned_3um.npz")["neuron_traces"]
+brain_neuron_indices = np.load("../data/em-lsm-data/indices_of_brain_neurons.npy")
+behaviour_annotations = pd.read_csv(f"../data/em-lsm-data/eventAnnotations.csv")
+segmentation = skimage.io.imread(f"../data/em-lsm-data/em_based_lsm_segmentation_3um.tif")
+neuron_traces_em_locations = pd.read_csv("../data/em-lsm-data/neuron_traces_em_locations.csv", header=None).values
 
 # Get segmentation centroids
 regions = regionprops(segmentation)

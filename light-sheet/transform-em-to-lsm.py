@@ -9,7 +9,7 @@ lsm_spatial_resolution = np.array([1.7, .406, .406])
 
 # Load EM soma
 print("Loading EM soma segmentations...")
-em_labels = skimage.io.imread("./data/em-soma-segmentation.tif")
+em_labels = skimage.io.imread("../data/em-lsm-data/em-soma-segmentation.tif")
 print("Loaded.")
 
 # Get label centroids
@@ -25,7 +25,7 @@ em_labels_centroids = np.array([r.centroid for r in regions])
 print("Fitting Thin Plate Spline transformation...")
 
 # Read landmarks (with EM and LSM coordinates)
-lsm2em_landmarks = pd.read_csv(f"./data/LSM2EMLandmarks.csv", header=None)
+lsm2em_landmarks = pd.read_csv(f"../data/em-lsm-data/LSM2EMLandmarks.csv", header=None)
 columns = ["name", "validity", "lsm_x", "lsm_y", "lsm_z", "em_x", "em_y", "em_z"]
 lsm2em_landmarks.columns = columns
 lsm2em_landmarks = lsm2em_landmarks[lsm2em_landmarks["validity"]==True] # Get valid landmarks only
